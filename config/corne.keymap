@@ -147,13 +147,13 @@
             key-positions = <30 18>;
         };
 
-        leftbrack {
-            bindings = <&kp LEFT_BRACKET>;
+        dash {
+            bindings = <&kp MINUS>;
             key-positions = <31 32>;
         };
 
-        rightbrack {
-            bindings = <&kp RIGHT_BRACKET>;
+        apos {
+            bindings = <&kp SINGLE_QUOTE>;
             key-positions = <33 32>;
         };
 
@@ -165,6 +165,11 @@
         para-great {
             bindings = <&paragreat>;
             key-positions = <20 21>;
+        };
+
+        unlock {
+            bindings = <&studio_unlock>;
+            key-positions = <40 41>;
         };
     };
 
@@ -254,5 +259,12 @@
         };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        syslayer {
+            if-layers = <2 3>;
+            then-layer = <4>;
+        };
+    };
 };
