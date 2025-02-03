@@ -68,7 +68,6 @@
                 <&macro_release>,
                 <&kp LCTRL>;
         };
-
     };
 
     combos {
@@ -185,15 +184,15 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U      &kp I          &kp O    &kp P     &kp BACKSPACE
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J      &kp K          &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M      &kp COMMA      &kp DOT  &kp FSLH  &kp RSHFT
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &lt 2 TAB  &kp LEFT_ALT
+&kp TAB       &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y  &kp U  &kp I         &kp O    &kp P     &kp BACKSPACE
+&kp LEFT_ALT  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H  &kp J  &kp K         &kp L    &kp SEMI  &kp RETURN
+&kp LCTRL     &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N  &kp M  &kp COMMA     &kp DOT  &kp FSLH  &kp RSHFT
+                            &kp LGUI  &sl 2  &kp SPACE    &sl 1  &sl 3  &kp LEFT_ALT
             >;
         };
 
         NAV {
-            display-name = "NavNum";
+            display-name = "NavSym";
 
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
@@ -202,10 +201,20 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &kp N1  &kp N2    &kp N3       &kp N4           &kp N5           &kp N6   &kp N7        &kp N8        &kp N9        &kp N0  &trans
-&caps_word  &trans  &trans    &kp UP_ARROW  &browsertab      &kp PAGE_UP      &kp N0   &kp N4  &kp N5        &kp N6  &trans  &trans
-&trans  &trans  &kp LEFT  &kp DOWN      &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1  &kp N2  &kp N3  &trans  &trans
-                          &kp LGUI      &trans           &kp SPACE        &kp RET  &trans        &trans
+&trans  &kp MINUS  &kp AMPERSAND         &kp CARET              &kp STAR         &kp DOLLAR          &kp PAGE_UP        &kp PAGE_DOWN  &kp HOME        &kp END          &kp INSERT  &kp DELETE
+&trans  &kp UNDER  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NON_US_HASH  &kp ESCAPE          &kp LEFT_ARROW     &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp COLON   &trans
+&trans  &kp EQUAL  &kp NON_US_BSLH       &kp SLASH              &kp AT_SIGN      &kp SINGLE_QUOTE    &kp DOUBLE_QUOTES  &kp PIPE       &kp PERCENT     &kp QUESTION     &trans      &trans
+                                         &trans                 &trans           &to 0               &none              &trans         &trans
+            >;
+        };
+
+        NUM {
+            display-name = "Numbers";
+            bindings = <
+&trans  &kp F1        &kp F2        &kp F3        &kp F4      &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &trans
+&trans  &kp F11       &kp F12       &trans        &trans      &studio_unlock    &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &bootloader  &trans
+                                    &trans        &trans      &trans            &trans  &trans  &trans
             >;
         };
 
@@ -226,32 +235,16 @@
             >;
         };
 
-        ADJ {
-            display-name = "System";
-            bindings = <
-&trans  &kp F1        &kp F2        &kp F3        &kp F4      &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &trans
-&trans  &kp F11       &kp F12       &trans        &trans      &studio_unlock            &trans  &trans  &trans  &trans  &trans       &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &bootloader  &trans
-                                    &trans        &trans      &trans            &trans  &trans  &trans
-            >;
-        };
         EXTRA {
             display-name = "extra";
             bindings = <
-&trans  &trans        &trans        &trans        &trans      &trans            &trans  &trans  &trans  &trans  &trans      &trans
-&trans  &trans       &trans       &trans        &trans      &trans            &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans       &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &bootloader  &trans
-                                    &trans        &trans      &trans            &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        l3 {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
