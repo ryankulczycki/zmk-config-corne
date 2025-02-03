@@ -171,6 +171,11 @@
             bindings = <&studio_unlock>;
             key-positions = <40 41>;
         };
+
+        bootloader {
+            bindings = <&bootloader>;
+            key-positions = <39 40 41>;
+        };
     };
 
     //
